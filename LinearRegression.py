@@ -32,3 +32,20 @@ def gradient_descent(m_now,b_now,points,lr):
   b = b_now - b_gradient*L
   return m,b
 
+#Running the gradient descent algo
+
+
+m =0 
+b= 0 
+L = 0.0001
+epochs = 1000
+for i in range(epochs):
+  if i % 200 == 0:
+    print(f"Epoch: {i}")
+  m,b = gradient_descent(m,b,data,L)
+
+
+print(m,b)
+plt.scatter(data.Hours , data.Scores, color = 'black')
+plt.plot(list(range(0,10)), [m*x + b for x in range(0,10)],color = 'red' )
+plt.show()
